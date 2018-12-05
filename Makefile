@@ -4,7 +4,7 @@ protos:
 SERVER_CN=localhost
 
 generate-ssl:
-	mkdir ssl
+	if ! [ -d "/ssl" ]; then mkdir ssl; fi
 	openssl genrsa -passout pass:1111 -des3 -out ssl/ca.key 4096
 	openssl req -passin pass:1111 -new -x509 -days 3650 -key ssl/ca.key -out ssl/ca.crt -subj "/CN=${SERVER_CN}"
 	openssl genrsa -passout pass:1111 -des3 -out ssl/server.key 4096
