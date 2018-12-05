@@ -1,0 +1,15 @@
+
+syntax='proto3';
+
+package contract;
+
+message Blog {
+    string id = 1;
+    string author_id = 2;
+    string title = 3;
+    string contennt = 4;
+}
+
+service BlogService {
+
+}
