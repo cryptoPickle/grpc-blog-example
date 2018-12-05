@@ -109,11 +109,13 @@ func listenForSIGINT() {
 
 func GenSSL(p string) error {
 	log.Info("Generating SSL Cert...")
-	err := filepath.Walk(p, CheckSSLFolder)
-	if err != nil {
-		log.Warn( err )
-		log.Warn("Could not create certs, it exists already. \nRemove ssl directory to recreate...")
-		return err
+	if _, err := os.Stat(p); !os.IsNotExist(err) {
+		err := filepath.Walk(p, CheckSSLFolder)
+		if err != nil {
+			log.Warn( err )
+			log.Warn("Could not create certs, it exists already. \nRemove ssl directory to recreate...")
+			return err
+		}
 	}
 	cmd := exec.Command("make", "generate-ssl")
 	if err := cmd.Run(); err != nil {
