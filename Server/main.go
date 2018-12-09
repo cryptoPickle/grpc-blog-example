@@ -1,9 +1,12 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"github.com/cryptoPickle/blog/Server/blog"
+	"github.com/cryptoPickle/blog/Server/database"
 	"github.com/cryptoPickle/blog/contract"
+	"github.com/mongodb/mongo-go-driver/mongo"
 	"github.com/pkg/errors"
 	"github.com/prometheus/common/log"
 	"github.com/urfave/cli"
@@ -44,6 +47,10 @@ func main (){
 			Name: "tls-folder",
 			Value: "ssl/",
 		},
+		cli.StringFlag{
+			Name: "mongodb-url",
+			Value: "mongodb://admin123:admin123@ds137763.mlab.com:37763/godatabase",
+		},
 
 	}
 
@@ -53,6 +60,7 @@ func main (){
 }
 
 func start (c *cli.Context) {
+
 	lis, err := net.Listen("tcp", "0.0.0.0:50052")
 	if err != nil {
 		log.Fatal( err )
@@ -69,7 +77,10 @@ func start (c *cli.Context) {
 		opts = ConfigureSSL(c.String("ssl-cert-file"), c.String("ssl-key-file"))
 	}
 	s := grpc.NewServer(opts...)
-	contract.RegisterBlogServiceServer(s, blog.NewBlogService())
+
+
+	client := ConnectMongo(c.String("mongodb-url"))
+	contract.RegisterBlogServiceServer(s, blog.NewBlogService(database.NewMongo(client)))
 
 
 	go func(){
@@ -79,7 +90,17 @@ func start (c *cli.Context) {
 	}()
 
 	log.Info("Server successfully started")
-	listenForSIGINT()
+	listenForSIGINT(lis, s, client)
+}
+
+
+func ConnectMongo(url string) *mongo.Client {
+	client, err := mongo.NewClient(url)
+	if err != nil {log.Fatal(err)}
+	log.Info("Connecting to MongoDB...")
+	err = client.Connect(context.TODO())
+	if err != nil {log.Fatal(err)}
+	return client
 }
 func ConfigureSSL(certPath, keyPath string) []grpc.ServerOption {
 	creds, sslErr := credentials.NewServerTLSFromFile(certPath, keyPath)
@@ -90,7 +111,7 @@ func ConfigureSSL(certPath, keyPath string) []grpc.ServerOption {
 }
 
 
-func listenForSIGINT() {
+func listenForSIGINT(l net.Listener, s *grpc.Server, m *mongo.Client) {
 	c := make (chan os.Signal, 1)
 	done := make(chan bool)
 	signal.Notify(c, os.Interrupt)
@@ -98,6 +119,12 @@ func listenForSIGINT() {
 	go func () {
 		for  range c {
 			log.Info("\nReceived an interrupt, unsubscribing and closing connection...\n\n")
+			log.Info("Closing the server...")
+			s.Stop()
+			log.Info("Closing the MogoDB connection...")
+			m.Disconnect(context.TODO())
+			log.Info("Closing the listener...")
+			l.Close()
 			done <- true
 		}
 	}()

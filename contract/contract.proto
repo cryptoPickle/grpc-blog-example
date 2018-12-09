@@ -11,5 +11,13 @@ message Blog {
 }
 
 service BlogService {
+    rpc CreateBlog (CreateBlogRequest) returns (CreateBlogResponse) {}
+}
 
+message CreateBlogRequest {
+   Blog blog = 1;
+}
+
+message CreateBlogResponse {
+    Blog blog = 1;
 }
