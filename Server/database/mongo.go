@@ -13,7 +13,7 @@ type MongoRepository struct {
 
 func NewMongo (c *mongo.Client) (*MongoRepository, *mongo.Collection) {
 	mc := &MongoRepository{client: c}
-	collection := mc.CreateCollection("blog", "blog")
+	collection := mc.CreateCollection("gotest", "blog")
 	mc.collection = collection
 	return mc, collection
 }

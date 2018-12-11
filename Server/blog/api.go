@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"github.com/cryptoPickle/blog/Server/database"
 	"github.com/cryptoPickle/blog/contract"
+	"github.com/mongodb/mongo-go-driver/bson/primitive"
 	"github.com/mongodb/mongo-go-driver/mongo"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"gopkg.in/mgo.v2/bson"
 )
 
 
@@ -38,11 +38,10 @@ func (b *BlogServiceServer) CreateBlog(c context.Context, req *contract.CreateBl
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, fmt.Sprintf("Internal error %v", err))
 	}
-
-	oid, ok := res.InsertedID.(bson.ObjectId)
+	oid, ok := res.InsertedID.(primitive.ObjectID)
 
 	if !ok {
-		return nil, status.Errorf(codes.Internal, fmt.Sprintf("Cannot convert to OID %v", err))
+		return nil, status.Errorf(codes.Internal, fmt.Sprintf("Cannot convert to OID %v", oid))
 	}
 
 

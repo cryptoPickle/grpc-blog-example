@@ -6,6 +6,7 @@ import (
 	"github.com/cryptoPickle/blog/Server/blog"
 	"github.com/cryptoPickle/blog/Server/database"
 	"github.com/cryptoPickle/blog/contract"
+	"github.com/joho/godotenv"
 	"github.com/mongodb/mongo-go-driver/mongo"
 	"github.com/pkg/errors"
 	"github.com/prometheus/common/log"
@@ -20,6 +21,10 @@ import (
 )
 
 func main (){
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal(err)
+	}
 	app := cli.NewApp()
 	app.Name = "Blog Server"
 	app.Version = "0.0.1"
@@ -49,7 +54,7 @@ func main (){
 		},
 		cli.StringFlag{
 			Name: "mongodb-url",
-			Value: "mongodb://admin123:admin123@ds137763.mlab.com:37763/godatabase",
+			Value: os.Getenv("MONGO"),
 		},
 
 	}
@@ -74,6 +79,7 @@ func start (c *cli.Context) {
 	}
 
 	if c.Bool("enable-tls") {
+		log.Info("Enabling TLS...")
 		opts = ConfigureSSL(c.String("ssl-cert-file"), c.String("ssl-key-file"))
 	}
 	s := grpc.NewServer(opts...)
