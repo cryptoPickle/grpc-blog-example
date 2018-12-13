@@ -163,30 +163,351 @@ func (m *CreateBlogResponse) GetBlog() *Blog {
 	return nil
 }
 
+type ReadBlogRequest struct {
+	BlogId               string   `protobuf:"bytes,1,opt,name=blog_id,json=blogId,proto3" json:"blog_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ReadBlogRequest) Reset()         { *m = ReadBlogRequest{} }
+func (m *ReadBlogRequest) String() string { return proto.CompactTextString(m) }
+func (*ReadBlogRequest) ProtoMessage()    {}
+func (*ReadBlogRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d5ed56110ac5207b, []int{3}
+}
+
+func (m *ReadBlogRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadBlogRequest.Unmarshal(m, b)
+}
+func (m *ReadBlogRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadBlogRequest.Marshal(b, m, deterministic)
+}
+func (m *ReadBlogRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadBlogRequest.Merge(m, src)
+}
+func (m *ReadBlogRequest) XXX_Size() int {
+	return xxx_messageInfo_ReadBlogRequest.Size(m)
+}
+func (m *ReadBlogRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadBlogRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadBlogRequest proto.InternalMessageInfo
+
+func (m *ReadBlogRequest) GetBlogId() string {
+	if m != nil {
+		return m.BlogId
+	}
+	return ""
+}
+
+type ReadBlogResponse struct {
+	Blog                 *Blog    `protobuf:"bytes,1,opt,name=blog,proto3" json:"blog,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ReadBlogResponse) Reset()         { *m = ReadBlogResponse{} }
+func (m *ReadBlogResponse) String() string { return proto.CompactTextString(m) }
+func (*ReadBlogResponse) ProtoMessage()    {}
+func (*ReadBlogResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d5ed56110ac5207b, []int{4}
+}
+
+func (m *ReadBlogResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReadBlogResponse.Unmarshal(m, b)
+}
+func (m *ReadBlogResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReadBlogResponse.Marshal(b, m, deterministic)
+}
+func (m *ReadBlogResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadBlogResponse.Merge(m, src)
+}
+func (m *ReadBlogResponse) XXX_Size() int {
+	return xxx_messageInfo_ReadBlogResponse.Size(m)
+}
+func (m *ReadBlogResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReadBlogResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReadBlogResponse proto.InternalMessageInfo
+
+func (m *ReadBlogResponse) GetBlog() *Blog {
+	if m != nil {
+		return m.Blog
+	}
+	return nil
+}
+
+type UpdateBlogRequest struct {
+	Blog                 *Blog    `protobuf:"bytes,1,opt,name=blog,proto3" json:"blog,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UpdateBlogRequest) Reset()         { *m = UpdateBlogRequest{} }
+func (m *UpdateBlogRequest) String() string { return proto.CompactTextString(m) }
+func (*UpdateBlogRequest) ProtoMessage()    {}
+func (*UpdateBlogRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d5ed56110ac5207b, []int{5}
+}
+
+func (m *UpdateBlogRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateBlogRequest.Unmarshal(m, b)
+}
+func (m *UpdateBlogRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateBlogRequest.Marshal(b, m, deterministic)
+}
+func (m *UpdateBlogRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateBlogRequest.Merge(m, src)
+}
+func (m *UpdateBlogRequest) XXX_Size() int {
+	return xxx_messageInfo_UpdateBlogRequest.Size(m)
+}
+func (m *UpdateBlogRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateBlogRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateBlogRequest proto.InternalMessageInfo
+
+func (m *UpdateBlogRequest) GetBlog() *Blog {
+	if m != nil {
+		return m.Blog
+	}
+	return nil
+}
+
+type UpdateBlogResponse struct {
+	Blog                 *Blog    `protobuf:"bytes,1,opt,name=blog,proto3" json:"blog,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UpdateBlogResponse) Reset()         { *m = UpdateBlogResponse{} }
+func (m *UpdateBlogResponse) String() string { return proto.CompactTextString(m) }
+func (*UpdateBlogResponse) ProtoMessage()    {}
+func (*UpdateBlogResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d5ed56110ac5207b, []int{6}
+}
+
+func (m *UpdateBlogResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateBlogResponse.Unmarshal(m, b)
+}
+func (m *UpdateBlogResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateBlogResponse.Marshal(b, m, deterministic)
+}
+func (m *UpdateBlogResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateBlogResponse.Merge(m, src)
+}
+func (m *UpdateBlogResponse) XXX_Size() int {
+	return xxx_messageInfo_UpdateBlogResponse.Size(m)
+}
+func (m *UpdateBlogResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateBlogResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateBlogResponse proto.InternalMessageInfo
+
+func (m *UpdateBlogResponse) GetBlog() *Blog {
+	if m != nil {
+		return m.Blog
+	}
+	return nil
+}
+
+type DeleteBlogRequest struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteBlogRequest) Reset()         { *m = DeleteBlogRequest{} }
+func (m *DeleteBlogRequest) String() string { return proto.CompactTextString(m) }
+func (*DeleteBlogRequest) ProtoMessage()    {}
+func (*DeleteBlogRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d5ed56110ac5207b, []int{7}
+}
+
+func (m *DeleteBlogRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteBlogRequest.Unmarshal(m, b)
+}
+func (m *DeleteBlogRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteBlogRequest.Marshal(b, m, deterministic)
+}
+func (m *DeleteBlogRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteBlogRequest.Merge(m, src)
+}
+func (m *DeleteBlogRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteBlogRequest.Size(m)
+}
+func (m *DeleteBlogRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteBlogRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteBlogRequest proto.InternalMessageInfo
+
+func (m *DeleteBlogRequest) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+type DeleteBlogResponse struct {
+	Status               string   `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteBlogResponse) Reset()         { *m = DeleteBlogResponse{} }
+func (m *DeleteBlogResponse) String() string { return proto.CompactTextString(m) }
+func (*DeleteBlogResponse) ProtoMessage()    {}
+func (*DeleteBlogResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d5ed56110ac5207b, []int{8}
+}
+
+func (m *DeleteBlogResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteBlogResponse.Unmarshal(m, b)
+}
+func (m *DeleteBlogResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteBlogResponse.Marshal(b, m, deterministic)
+}
+func (m *DeleteBlogResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteBlogResponse.Merge(m, src)
+}
+func (m *DeleteBlogResponse) XXX_Size() int {
+	return xxx_messageInfo_DeleteBlogResponse.Size(m)
+}
+func (m *DeleteBlogResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteBlogResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteBlogResponse proto.InternalMessageInfo
+
+func (m *DeleteBlogResponse) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+type ListBlogRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ListBlogRequest) Reset()         { *m = ListBlogRequest{} }
+func (m *ListBlogRequest) String() string { return proto.CompactTextString(m) }
+func (*ListBlogRequest) ProtoMessage()    {}
+func (*ListBlogRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d5ed56110ac5207b, []int{9}
+}
+
+func (m *ListBlogRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListBlogRequest.Unmarshal(m, b)
+}
+func (m *ListBlogRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListBlogRequest.Marshal(b, m, deterministic)
+}
+func (m *ListBlogRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListBlogRequest.Merge(m, src)
+}
+func (m *ListBlogRequest) XXX_Size() int {
+	return xxx_messageInfo_ListBlogRequest.Size(m)
+}
+func (m *ListBlogRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListBlogRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListBlogRequest proto.InternalMessageInfo
+
+type ListBlogResponse struct {
+	Blog                 *Blog    `protobuf:"bytes,1,opt,name=blog,proto3" json:"blog,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ListBlogResponse) Reset()         { *m = ListBlogResponse{} }
+func (m *ListBlogResponse) String() string { return proto.CompactTextString(m) }
+func (*ListBlogResponse) ProtoMessage()    {}
+func (*ListBlogResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d5ed56110ac5207b, []int{10}
+}
+
+func (m *ListBlogResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListBlogResponse.Unmarshal(m, b)
+}
+func (m *ListBlogResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListBlogResponse.Marshal(b, m, deterministic)
+}
+func (m *ListBlogResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListBlogResponse.Merge(m, src)
+}
+func (m *ListBlogResponse) XXX_Size() int {
+	return xxx_messageInfo_ListBlogResponse.Size(m)
+}
+func (m *ListBlogResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListBlogResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListBlogResponse proto.InternalMessageInfo
+
+func (m *ListBlogResponse) GetBlog() *Blog {
+	if m != nil {
+		return m.Blog
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*Blog)(nil), "contract.Blog")
 	proto.RegisterType((*CreateBlogRequest)(nil), "contract.CreateBlogRequest")
 	proto.RegisterType((*CreateBlogResponse)(nil), "contract.CreateBlogResponse")
+	proto.RegisterType((*ReadBlogRequest)(nil), "contract.ReadBlogRequest")
+	proto.RegisterType((*ReadBlogResponse)(nil), "contract.ReadBlogResponse")
+	proto.RegisterType((*UpdateBlogRequest)(nil), "contract.UpdateBlogRequest")
+	proto.RegisterType((*UpdateBlogResponse)(nil), "contract.UpdateBlogResponse")
+	proto.RegisterType((*DeleteBlogRequest)(nil), "contract.DeleteBlogRequest")
+	proto.RegisterType((*DeleteBlogResponse)(nil), "contract.DeleteBlogResponse")
+	proto.RegisterType((*ListBlogRequest)(nil), "contract.ListBlogRequest")
+	proto.RegisterType((*ListBlogResponse)(nil), "contract.ListBlogResponse")
 }
 
 func init() { proto.RegisterFile("contract/contract.proto", fileDescriptor_d5ed56110ac5207b) }
 
 var fileDescriptor_d5ed56110ac5207b = []byte{
-	// 213 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x90, 0xc1, 0x4b, 0x86, 0x40,
-	0x10, 0xc5, 0xfb, 0xcc, 0xe2, 0x73, 0x04, 0xa1, 0x21, 0x68, 0xd1, 0x0e, 0xb1, 0xa7, 0x4e, 0x06,
-	0x76, 0xa8, 0x73, 0x9d, 0xbc, 0xda, 0xa5, 0x5b, 0xa8, 0x3b, 0xd8, 0x82, 0xec, 0xda, 0x3a, 0xf6,
-	0xf7, 0x87, 0xbb, 0x98, 0x41, 0x1d, 0xba, 0xed, 0x9b, 0xb7, 0xbf, 0x79, 0x8f, 0x81, 0xab, 0xde,
-	0x1a, 0x76, 0x6d, 0xcf, 0x77, 0xdb, 0xa3, 0x9c, 0x9c, 0x65, 0x8b, 0xc7, 0x4d, 0x4b, 0x82, 0xf8,
-	0x69, 0xb4, 0x03, 0x66, 0x10, 0x69, 0x25, 0x0e, 0x37, 0x87, 0xdb, 0xa4, 0x89, 0xb4, 0xc2, 0x02,
-	0x92, 0x76, 0xe1, 0x77, 0xeb, 0xde, 0xb4, 0x12, 0x91, 0x1f, 0x1f, 0xc3, 0xa0, 0x56, 0x78, 0x09,
-	0x67, 0xac, 0x79, 0x24, 0x71, 0xea, 0x8d, 0x20, 0x30, 0x07, 0xbf, 0x96, 0x8c, 0x61, 0x11, 0x07,
-	0x62, 0xd3, 0xf2, 0x01, 0x2e, 0x9e, 0x1d, 0xb5, 0x4c, 0x6b, 0x58, 0x43, 0x1f, 0x0b, 0xcd, 0x8c,
-	0x12, 0xe2, 0x6e, 0xb4, 0x83, 0x4f, 0x4d, 0xab, 0xac, 0xfc, 0x2e, 0xe9, 0x3f, 0x79, 0x4f, 0x3e,
-	0x02, 0xfe, 0x04, 0xe7, 0xc9, 0x9a, 0x99, 0xfe, 0x43, 0x56, 0xaf, 0x90, 0xae, 0xea, 0x85, 0xdc,
-	0xa7, 0xee, 0x09, 0x6b, 0x80, 0x7d, 0x11, 0x16, 0x3b, 0xf2, 0xab, 0x57, 0x7e, 0xfd, 0xb7, 0x19,
-	0xb2, 0xe5, 0x49, 0x77, 0xee, 0x8f, 0x78, 0xff, 0x15, 0x00, 0x00, 0xff, 0xff, 0x4c, 0x53, 0x0c,
-	0x51, 0x5f, 0x01, 0x00, 0x00,
+	// 358 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x53, 0x4d, 0x4f, 0xc2, 0x40,
+	0x10, 0x85, 0x8a, 0x58, 0x86, 0x04, 0xec, 0xc4, 0x48, 0x2d, 0x1e, 0xcc, 0x7a, 0x31, 0xc6, 0xa0,
+	0xc1, 0x44, 0x3c, 0x8b, 0x1e, 0x9a, 0x78, 0xc2, 0x78, 0x26, 0x85, 0x9d, 0x60, 0x93, 0xa6, 0x8b,
+	0xed, 0xe2, 0x8f, 0xf7, 0x64, 0xba, 0xb5, 0xdd, 0xb5, 0xe5, 0x00, 0xde, 0xfa, 0xe6, 0xe3, 0xbd,
+	0x99, 0x79, 0x5d, 0x18, 0x2c, 0x45, 0x2c, 0x93, 0x60, 0x29, 0x6f, 0x8b, 0x8f, 0xd1, 0x3a, 0x11,
+	0x52, 0xa0, 0x5d, 0x60, 0x46, 0xd0, 0x7a, 0x8a, 0xc4, 0x0a, 0x7b, 0x60, 0x85, 0xdc, 0x6d, 0x5e,
+	0x34, 0xaf, 0x3a, 0x33, 0x2b, 0xe4, 0x38, 0x84, 0x4e, 0xb0, 0x91, 0x1f, 0x22, 0x99, 0x87, 0xdc,
+	0xb5, 0x54, 0xd8, 0xce, 0x03, 0x3e, 0xc7, 0x13, 0x38, 0x94, 0xa1, 0x8c, 0xc8, 0x3d, 0x50, 0x89,
+	0x1c, 0xa0, 0x07, 0x8a, 0x96, 0xe2, 0x58, 0xba, 0xad, 0xbc, 0xa3, 0xc0, 0x6c, 0x02, 0xce, 0x34,
+	0xa1, 0x40, 0x52, 0x26, 0x36, 0xa3, 0xcf, 0x0d, 0xa5, 0x12, 0x19, 0xb4, 0x16, 0x91, 0x58, 0x29,
+	0xd5, 0xee, 0xb8, 0x37, 0x2a, 0x87, 0x54, 0x45, 0x2a, 0xc7, 0x1e, 0x01, 0xcd, 0xc6, 0x74, 0x2d,
+	0xe2, 0x94, 0x76, 0xea, 0xbc, 0x86, 0xfe, 0x8c, 0x02, 0x6e, 0x0a, 0x0e, 0xe0, 0x28, 0x4b, 0xcd,
+	0xcb, 0x4d, 0xdb, 0x19, 0xf4, 0x39, 0x7b, 0x80, 0x63, 0x5d, 0xbb, 0x87, 0xc6, 0x04, 0x9c, 0xf7,
+	0x35, 0xff, 0xdf, 0x5a, 0x66, 0xe3, 0x1e, 0x92, 0x97, 0xe0, 0x3c, 0x53, 0x44, 0x7f, 0x25, 0x2b,
+	0xee, 0xb1, 0x1b, 0x40, 0xb3, 0xe8, 0x97, 0xfe, 0x14, 0xda, 0xa9, 0x0c, 0xe4, 0x26, 0x2d, 0xb6,
+	0xcf, 0x11, 0x73, 0xa0, 0xff, 0x1a, 0xa6, 0xd2, 0x20, 0xcc, 0x0e, 0xa2, 0x43, 0xbb, 0x4f, 0x37,
+	0xfe, 0xb6, 0xa0, 0x9b, 0xc1, 0x37, 0x4a, 0xbe, 0xc2, 0x25, 0xa1, 0x0f, 0xa0, 0xed, 0xc3, 0xa1,
+	0xee, 0xa9, 0xfd, 0x0d, 0xde, 0xf9, 0xf6, 0x64, 0x2e, 0xce, 0x1a, 0x38, 0x05, 0xbb, 0xf0, 0x08,
+	0xcf, 0x74, 0x6d, 0xc5, 0x63, 0xcf, 0xdb, 0x96, 0x2a, 0x49, 0x7c, 0x00, 0x7d, 0x77, 0x73, 0x9e,
+	0x9a, 0x8d, 0xe6, 0x3c, 0x75, 0xab, 0x72, 0x2a, 0x7d, 0x63, 0x93, 0xaa, 0x66, 0x8f, 0x49, 0x55,
+	0xb7, 0x85, 0x35, 0xf0, 0x05, 0xec, 0xe2, 0xda, 0xe6, 0x6a, 0x15, 0x53, 0xcc, 0xd5, 0xaa, 0xe6,
+	0xb0, 0xc6, 0x5d, 0x73, 0xd1, 0x56, 0x8f, 0xfb, 0xfe, 0x27, 0x00, 0x00, 0xff, 0xff, 0xf7, 0x8e,
+	0x4c, 0xff, 0xf7, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -202,6 +523,10 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type BlogServiceClient interface {
 	CreateBlog(ctx context.Context, in *CreateBlogRequest, opts ...grpc.CallOption) (*CreateBlogResponse, error)
+	ReadBlog(ctx context.Context, in *ReadBlogRequest, opts ...grpc.CallOption) (*ReadBlogResponse, error)
+	UpdateBlog(ctx context.Context, in *UpdateBlogRequest, opts ...grpc.CallOption) (*UpdateBlogResponse, error)
+	DeleteBlog(ctx context.Context, in *DeleteBlogRequest, opts ...grpc.CallOption) (*DeleteBlogResponse, error)
+	ListBlog(ctx context.Context, in *ListBlogRequest, opts ...grpc.CallOption) (BlogService_ListBlogClient, error)
 }
 
 type blogServiceClient struct {
@@ -221,9 +546,72 @@ func (c *blogServiceClient) CreateBlog(ctx context.Context, in *CreateBlogReques
 	return out, nil
 }
 
+func (c *blogServiceClient) ReadBlog(ctx context.Context, in *ReadBlogRequest, opts ...grpc.CallOption) (*ReadBlogResponse, error) {
+	out := new(ReadBlogResponse)
+	err := c.cc.Invoke(ctx, "/contract.BlogService/ReadBlog", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *blogServiceClient) UpdateBlog(ctx context.Context, in *UpdateBlogRequest, opts ...grpc.CallOption) (*UpdateBlogResponse, error) {
+	out := new(UpdateBlogResponse)
+	err := c.cc.Invoke(ctx, "/contract.BlogService/UpdateBlog", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *blogServiceClient) DeleteBlog(ctx context.Context, in *DeleteBlogRequest, opts ...grpc.CallOption) (*DeleteBlogResponse, error) {
+	out := new(DeleteBlogResponse)
+	err := c.cc.Invoke(ctx, "/contract.BlogService/DeleteBlog", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *blogServiceClient) ListBlog(ctx context.Context, in *ListBlogRequest, opts ...grpc.CallOption) (BlogService_ListBlogClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_BlogService_serviceDesc.Streams[0], "/contract.BlogService/ListBlog", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &blogServiceListBlogClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type BlogService_ListBlogClient interface {
+	Recv() (*ListBlogResponse, error)
+	grpc.ClientStream
+}
+
+type blogServiceListBlogClient struct {
+	grpc.ClientStream
+}
+
+func (x *blogServiceListBlogClient) Recv() (*ListBlogResponse, error) {
+	m := new(ListBlogResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // BlogServiceServer is the server API for BlogService service.
 type BlogServiceServer interface {
 	CreateBlog(context.Context, *CreateBlogRequest) (*CreateBlogResponse, error)
+	ReadBlog(context.Context, *ReadBlogRequest) (*ReadBlogResponse, error)
+	UpdateBlog(context.Context, *UpdateBlogRequest) (*UpdateBlogResponse, error)
+	DeleteBlog(context.Context, *DeleteBlogRequest) (*DeleteBlogResponse, error)
+	ListBlog(*ListBlogRequest, BlogService_ListBlogServer) error
 }
 
 func RegisterBlogServiceServer(s *grpc.Server, srv BlogServiceServer) {
@@ -248,6 +636,81 @@ func _BlogService_CreateBlog_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _BlogService_ReadBlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadBlogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlogServiceServer).ReadBlog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/contract.BlogService/ReadBlog",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlogServiceServer).ReadBlog(ctx, req.(*ReadBlogRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BlogService_UpdateBlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateBlogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlogServiceServer).UpdateBlog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/contract.BlogService/UpdateBlog",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlogServiceServer).UpdateBlog(ctx, req.(*UpdateBlogRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BlogService_DeleteBlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteBlogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlogServiceServer).DeleteBlog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/contract.BlogService/DeleteBlog",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlogServiceServer).DeleteBlog(ctx, req.(*DeleteBlogRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BlogService_ListBlog_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(ListBlogRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(BlogServiceServer).ListBlog(m, &blogServiceListBlogServer{stream})
+}
+
+type BlogService_ListBlogServer interface {
+	Send(*ListBlogResponse) error
+	grpc.ServerStream
+}
+
+type blogServiceListBlogServer struct {
+	grpc.ServerStream
+}
+
+func (x *blogServiceListBlogServer) Send(m *ListBlogResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _BlogService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "contract.BlogService",
 	HandlerType: (*BlogServiceServer)(nil),
@@ -256,7 +719,25 @@ var _BlogService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "CreateBlog",
 			Handler:    _BlogService_CreateBlog_Handler,
 		},
+		{
+			MethodName: "ReadBlog",
+			Handler:    _BlogService_ReadBlog_Handler,
+		},
+		{
+			MethodName: "UpdateBlog",
+			Handler:    _BlogService_UpdateBlog_Handler,
+		},
+		{
+			MethodName: "DeleteBlog",
+			Handler:    _BlogService_DeleteBlog_Handler,
+		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "ListBlog",
+			Handler:       _BlogService_ListBlog_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "contract/contract.proto",
 }

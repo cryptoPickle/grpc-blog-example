@@ -13,6 +13,7 @@ import (
 	"github.com/urfave/cli"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
+	"google.golang.org/grpc/reflection"
 	"net"
 	"os"
 	"os/exec"
@@ -87,7 +88,7 @@ func start (c *cli.Context) {
 
 	client := ConnectMongo(c.String("mongodb-url"))
 	contract.RegisterBlogServiceServer(s, blog.NewBlogService(database.NewMongo(client)))
-
+	reflection.Register(s)
 
 	go func(){
 		if err := s.Serve(lis); err != nil {
